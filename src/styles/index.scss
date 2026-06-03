@@ -1,0 +1,213 @@
+/* Подключаем стили со шрифтами, так как они нужны на всех страницах */
+
+@import '~fonts/font';
+
+/* Отключаем браузерные дефолтные стили для всех элементов */
+
+html,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	border: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	font-size: 100%;
+	line-height: 1;
+	vertical-align: baseline;
+	border: 0;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ========== СТИЛИ ДЛЯ SELECT ========== */
+
+.select__control {
+  border: 1px solid #000000 !important;
+  border-radius: 0 !important;
+  min-height: 40px !important;
+  transition: border-color 0.2s ease;
+}
+
+.select__control:hover {
+  border-color: #ffc802 !important;
+}
+
+.select__control--is-focused {
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+
+.select__value-container {
+  padding: 8px 12px !important;
+}
+
+.select__indicator {
+  color: #000000 !important;
+  padding: 8px !important;
+}
+
+.select__indicator:hover {
+  color: #ffc802 !important;
+}
+
+.select__menu {
+  border: 3px solid #000000 !important;
+  border-radius: 0 !important;
+  margin-top: 4px !important;
+  box-shadow: none !important;
+}
+
+.select__menu-list {
+  padding: 0 !important;
+  max-height: 300px !important;
+}
+
+.select__option {
+  padding: 10px 12px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease;
+}
+
+.select__option--is-focused {
+  background-color: #f5f5f5 !important;
+}
+
+.select__option--is-selected {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.select__option:hover:not(.select__option--is-selected) {
+  background-color: #ffc802 !important;
+  color: #000000 !important;
+}
+
+.select__dropdown-indicator {
+  color: #000000 !important;
+}
+
+.select__dropdown-indicator:hover {
+  color: #ffc802 !important;
+}
