@@ -1,5 +1,4 @@
 import { CSSProperties, useState } from 'react';
-import clsx from 'clsx';
 
 import { Article } from '../article/Article';
 import { ArticleParamsForm } from '../article-params-form/ArticleParamsForm';
@@ -16,7 +15,7 @@ export const App = () => {
 
   return (
     <main
-      className={clsx(styles.main)}
+      className={styles.main}
       style={
         {
           '--font-family': appSettings.fontFamilyOption.value,

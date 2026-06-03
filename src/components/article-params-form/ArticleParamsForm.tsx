@@ -30,10 +30,12 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 
   const sidebarRef = useRef<HTMLElement>(null);
 
+  // Закрытие по клику вне сайдбара (только когда открыт)
   useEffect(() => {
+    if (!isSidebarOpen) return;
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        isSidebarOpen &&
         sidebarRef.current &&
         !sidebarRef.current.contains(event.target as Node) &&
         !(event.target as HTMLElement).closest('.arrow-button')
@@ -57,7 +59,12 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
   };
 
   const handleToggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen((prev) => !prev);
+  };
+
+  // Обобщённая функция для обновления полей формы
+  const updateFormField = (field: keyof ArticleStateType) => (option: OptionType) => {
+    setFormSettings((prev) => ({ ...prev, [field]: option }));
   };
 
   return (
@@ -68,7 +75,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
         className={clsx(styles.container, {
           [styles.container_open]: isSidebarOpen,
         })}>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit} onReset={handleReset}>
           <div className={styles.header}>
             <Text as='h2' size={31} weight={800} uppercase>
               Задайте параметры
@@ -80,9 +87,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
               title='Шрифт'
               options={fontFamilyOptions}
               selected={formSettings.fontFamilyOption}
-              onChange={(option: OptionType) =>
-                setFormSettings({ ...formSettings, fontFamilyOption: option })
-              }
+              onChange={updateFormField('fontFamilyOption')}
             />
           </div>
 
@@ -92,9 +97,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
               name='fontSize'
               options={fontSizeOptions}
               selected={formSettings.fontSizeOption}
-              onChange={(option: OptionType) =>
-                setFormSettings({ ...formSettings, fontSizeOption: option })
-              }
+              onChange={updateFormField('fontSizeOption')}
             />
           </div>
 
@@ -103,9 +106,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
               title='Цвет шрифта'
               options={fontColors}
               selected={formSettings.fontColor}
-              onChange={(option: OptionType) =>
-                setFormSettings({ ...formSettings, fontColor: option })
-              }
+              onChange={updateFormField('fontColor')}
             />
           </div>
 
@@ -118,9 +119,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
               title='Цвет фона'
               options={backgroundColors}
               selected={formSettings.backgroundColor}
-              onChange={(option: OptionType) =>
-                setFormSettings({ ...formSettings, backgroundColor: option })
-              }
+              onChange={updateFormField('backgroundColor')}
             />
           </div>
 
@@ -129,14 +128,12 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
               title='Ширина контента'
               options={contentWidthArr}
               selected={formSettings.contentWidth}
-              onChange={(option: OptionType) =>
-                setFormSettings({ ...formSettings, contentWidth: option })
-              }
+              onChange={updateFormField('contentWidth')}
             />
           </div>
 
           <div className={styles.bottomContainer}>
-            <Button title='Сбросить' htmlType='reset' type='clear' onClick={handleReset} />
+            <Button title='Сбросить' htmlType='reset' type='clear' />
             <Button title='Применить' htmlType='submit' type='apply' />
           </div>
         </form>
