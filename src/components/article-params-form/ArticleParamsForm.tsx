@@ -56,9 +56,13 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
     onApply(defaultArticleState);
   };
 
+  const handleToggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
-      <ArrowButton isOpen={isSidebarOpen} onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
+      <ArrowButton isOpen={isSidebarOpen} onClick={handleToggleSidebar} />
       <aside
         ref={sidebarRef}
         className={clsx(styles.container, {
