@@ -140,3 +140,74 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* ========== СТИЛИ ДЛЯ SELECT ========== */
+
+.select__control {
+  border: 1px solid #000000 !important;
+  border-radius: 0 !important;
+  min-height: 40px !important;
+  transition: border-color 0.2s ease;
+}
+
+.select__control:hover {
+  border-color: #ffc802 !important;
+}
+
+.select__control--is-focused {
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+
+.select__value-container {
+  padding: 8px 12px !important;
+}
+
+.select__indicator {
+  color: #000000 !important;
+  padding: 8px !important;
+}
+
+.select__indicator:hover {
+  color: #ffc802 !important;
+}
+
+.select__menu {
+  border: 3px solid #000000 !important;
+  border-radius: 0 !important;
+  margin-top: 4px !important;
+  box-shadow: none !important;
+}
+
+.select__menu-list {
+  padding: 0 !important;
+  max-height: 300px !important;
+}
+
+.select__option {
+  padding: 10px 12px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease;
+}
+
+.select__option--is-focused {
+  background-color: #f5f5f5 !important;
+}
+
+.select__option--is-selected {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.select__option:hover:not(.select__option--is-selected) {
+  background-color: #ffc802 !important;
+  color: #000000 !important;
+}
+
+.select__dropdown-indicator {
+  color: #000000 !important;
+}
+
+.select__dropdown-indicator:hover {
+  color: #ffc802 !important;
+}
